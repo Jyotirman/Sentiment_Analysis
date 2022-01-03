@@ -114,6 +114,25 @@
         </div>
 
     </div>
+    <div style="margin-top: 50px">
+        <h1 style="color: white; text-align: center;font-size:50px">Detailed Report</h1>
+        <div class="alert alert-primary" role="alert" style="height:400px">
+            {% if polarity %}
+            <h2 class="report-text"> {{spositive}} "% people thought it was strongly positive"</h2>
+            <h2 class="report-text"> {{positive}} "% people thought it was positive"</h2>
+            <h2 class="report-text"> {{wpositive}} "% people thought it was weakly positive"</h2>
+            <h2 class="report-text"> {{neutral}} "% people thought it was neutral"</h2>
+            <h2 class="report-text"> {{negative}} "% people thought it was negative"</h2>
+            <h2 class="report-text"> {{wnegative}} "% people thought it was weakly negative"</h2>
+            <h2 class="report-text"> {{snegative}} "% people thought it was strongly negative"</h2>
+            {%endif%}
+        </div>
+    </div>
+    <!--end of report-->
+    <a href="visualize" class="btn btn-primary btn-block btn-lg" style="background-color: crimson; font-size: 30px">
+        Generate Visualization</a>
+    <br>
+    <br>
 
 
 
