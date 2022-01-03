@@ -125,24 +125,29 @@ class SentimentAnalysis:
         temp = 100 * float(part)/float(whole)
         return format(temp, '.2f')
 
-    def plotPieChart(self, positive, wpositive, spositive, negative, wnegative, snegative, neutral, keyword, tweets):
-        fig = plt.figure()
-        labels = ['Positive [' + str(positive) + '%]'
-                  'Weakly Positive [' + str(wpositive) + '%]'
-                  'Strongly Positive [' + str(spositive) + '%]'
-                  'Neutral [' + str(neutral) + '%]'
-                  'Negative [' + str(negative) + '%]'
-                  'Weakly negative [' + str(wnegative) + '%]'
-                  'Strongly negative [' + str(snegative) + '%]']
+     def plotPieChart(self, positive, wpositive, spositive, negative, wnegative, snegative, neutral, keyword, tweets):
+        plt.figure()
+        mylabels = ['Positive [' + str(positive) + '%]',
+                    'Weakly Positive [' + str(wpositive) + '%]',
+                    'Strongly Positive [' + str(spositive) + '%]',
+                    'Neutral [' + str(neutral) + '%]',
+                    'Negative [' + str(negative) + '%]',
+                    'Weakly negative [' + str(wnegative) + '%]',
+                    'Strongly negative [' + str(snegative) + '%]']
         sizes = [positive, wpositive, spositive,
                  neutral, negative, wnegative, snegative]
 
         colors = ['yellowgreen', 'lightgreen', 'darkgreen',
                   'gold', 'red', 'lightsalmon', 'darkred']
 
-        patches, texts = plt.pie(sizes, colors=colors, startangle=90)
+        myexplode = [0.2, 0, 0, 0, 0, 0, 0]
 
-        plt.legend(patches, labels, loc='best')
+        # patches, texts = plt.pie(sizes, colors=colors,
+        #                          explode=None, shadow=True, startangle=90)
+        plt.pie(sizes, colors=colors, labels=mylabels,
+                explode=myexplode, shadow=True, startangle=90)
+
+        plt.legend(mylabels, title='Polarity')
         plt.axis('equal')
         plt.tight_layout()
         strFile = r"D:\python projects\sentiments\static\images\plot1.png"
